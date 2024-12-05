@@ -7,9 +7,22 @@ import 'package:wisata_candi/screens/sign_up_screen.dart';
 import 'screens/details_screen.dart';
 import 'screens/search_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/favorite_screen.dart';
+import 'screens/main_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MaterialApp(
+      home: MainScreen(),
+      initialRoute: '/',
+      routes: {
+        // '/': (context) => MainApp(),
+        '/home': (context) => HomeScreen(),
+        '/signin': (context) => SignInScreen(),
+        '/signup': (context) => SignUpScreen(),
+        '/search': (context) => SearchScreen(),
+        '/profile': (context) => const ProfileScreen(),
+      }
+  ));
 }
 
 class MainApp extends StatelessWidget {
@@ -31,8 +44,7 @@ class MainApp extends StatelessWidget {
                 primary: Colors.deepPurple, surface: Colors.deepPurple[50]),
         useMaterial3: true,
       ),
-      // home: DetailScreen(candi: candiList[0]),
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }
